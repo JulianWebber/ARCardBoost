@@ -8,4 +8,6 @@ dependencies = [
     "flask>=3.0.3",
     "flask-sqlalchemy>=3.1.1",
     "psycopg2-binary>=2.9.9",
+    "qrcode>=8.0",
+    "pillow>=10.4.0",
 ]

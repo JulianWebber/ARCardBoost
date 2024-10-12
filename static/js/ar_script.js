@@ -3,10 +3,10 @@ AFRAME.registerComponent('ar-scene-loaded', {
     init: function () {
         console.log('AR scene loaded');
         
-        // Initialize the business card when the marker is found
+        // Initialize the business card when the QR code is found
         const marker = document.querySelector('a-marker');
         marker.addEventListener('markerFound', function() {
-            console.log('Marker found');
+            console.log('QR code found');
             initBusinessCard();
         });
     }

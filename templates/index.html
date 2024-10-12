@@ -9,21 +9,29 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.2.2/aframe/build/aframe-ar.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://docs.opencv.org/4.5.2/opencv.js"></script>
 </head>
 <body>
     <div class="container mt-4">
         <h1 class="text-center mb-4">AR Business Card Viewer</h1>
         <div id="arScene" class="ar-scene">
             <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
-                <a-marker preset="custom" type="pattern" url="{{ url_for('static', filename='assets/marker.patt') }}">
+                <a-marker preset="custom" type="pattern" url="{{ url_for('qr_code') }}">
                     <a-entity id="businessCard"></a-entity>
                 </a-marker>
                 <a-entity camera></a-entity>
             </a-scene>
         </div>
         <div id="instructions" class="mt-4">
-            <p class="text-center">Scan the QR code to view the digital business card</p>
+            <p class="text-center">To view the AR business card:</p>
+            <ol>
+                <li>Download the QR code image below</li>
+                <li>Print the QR code or display it on another device</li>
+                <li>Point your camera at the QR code to view the AR business card</li>
+            </ol>
+            <div class="text-center mt-3">
+                <img src="{{ url_for('qr_code') }}" alt="QR Code" class="img-fluid" style="max-width: 200px;">
+                <p class="mt-2"><a href="{{ url_for('qr_code') }}" download="ar_business_card_qr.png" class="btn btn-primary">Download QR Code</a></p>
+            </div>
         </div>
     </div>
 
